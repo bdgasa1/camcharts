@@ -1,0 +1,332 @@
+---
+import "../styles/global.css";
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Technology - Cambridge Construction Intelligence</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <!-- Section 1: Technology Overview Grid -->
+    <section class="technology-overview">
+      <div class="container tech-grid">
+        <!-- Left column: Heading -->
+        <h2>Our Technology</h2>
+
+        <!-- Right column: Paragraphs -->
+        <div>
+          <p>
+            Our technology is the result of over five years of cutting-edge research and development 
+            at the University of Cambridge, created in close partnership with leading construction 
+            companies across the UK. This unique combination of academic rigor and real-world testing 
+            has produced a platform that brings unprecedented clarity, consistency, and intelligence 
+            to construction performance.
+          </p>
+          <p>
+            We combine advanced data integration, automated analytics, and domain-specialised metrics 
+            to transform fragmented project data into reliable, near real-time productivity insight.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Integrates Siloed Data Automatically Grid -->
+    <section class="data-integration">
+      <div class="container tech-grid">
+        <!-- Left column: Heading and subheading -->
+        <div>
+        <h2>What It Does</h2>
+        <p class="subtitle">Integrates Siloed Data Automatically</p>
+
+        </div>
+
+        <!-- Right column: Content list -->
+        <div>
+                    <p>
+            Construction projects generate enormous volumes of digital and manual data; but most of 
+            it is fragmented across systems, formats, and subcontractors.
+          </p>
+          <p>
+            Our AI platform automatically ingests and integrates data from multiple sources, including:
+          </p>
+          <ul>
+            <li>Programme and planning data</li>
+            <li>Progress and field reporting systems</li>
+            <li>Imaging and visual data</li>
+            <li>Digital tools (BIM, sensors, logistics platforms, and more)</li>
+            <li>Contractor-specific datasets and spreadsheets</li>
+          </ul>
+          <p>This creates a single, coherent, structured view of performance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Integrated Intelligence with Background Image -->
+    <section class="integrated-intelligence">
+    <div class="hero-bg">
+        <div class="overlay"></div> <!-- subtle overlay -->
+        <div class="content-box">
+        <h2>How It Works</h2>
+        <p class="subtitle">Integrated Intelligence for Real-Time Productivity Insight</p>
+        <p>
+            Our AI platform transforms fragmented construction data into structured, standardised 
+            intelligence that teams can act on. Using advanced data processing, AI-assisted cleaning 
+            and domain-specific modelling, we generate reliable productivity metrics such as 
+            activity-level production rates, flowline analysis, plan-vs-actual performance, and the 
+            identification of blockers and workflow constraints.
+        </p>
+        <p>
+            By continuously unifying diverse data streams, the system provides near real-time situational 
+            awareness; highlighting emerging delays, productivity losses, rework, and risks before 
+            they escalate. This visibility enables teams to intervene early, optimise workflows, and 
+            make faster, evidence-based decisions.
+        </p>
+        <p>
+            Because all projects are measured consistently, the platform also produces robust, 
+            evidence-based benchmarks that improve future planning. These insights strengthen 
+            tendering and pricing decisions, challenge unrealistic programmes, support MMC and 
+            modern delivery methods, and drive continuous learning across projects and organisations.
+        </p>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- Section 4: Underlying Technology (4-column layout) -->
+    <section class="underlying-technology">
+    <div class="container tech-grid-4col">
+
+        <!-- Column 1: Section heading -->
+        <div>
+        <h2>Our Underlying Technology</h2>
+        </div>
+
+        <!-- Column 2: Two subheadings -->
+        <div>
+        <h3 class="subtitle">Custom Data Integration Framework</h3>
+        <p>A flexible ingestion pipeline designed for construction’s messy, inconsistent data. Handles structured, semi-structured, and unstructured formats.</p>
+
+        <h3 class="subtitle">AI-Assisted Data Cleaning & Standardisation</h3>
+        <p>Machine learning methods trained on real project data plus domain rules developed through Cambridge research.</p>
+        </div>
+
+        <!-- Column 3: One subheading -->
+        <div>
+        <h3 class="subtitle">Construction-Specific Analytics Engine</h3>
+        <p>Purpose-built algorithms for:</p>
+        <ul>
+            <li>Flowline modelling</li>
+            <li>Production forecasting</li>
+            <li>Constraint and blocker detection</li>
+            <li>Workspace and workflow analysis</li>
+            <li>Multi-project benchmarking</li>
+        </ul>
+        </div>
+
+        <!-- Column 4: Two subheadings -->
+        <div>
+        <h3 class="subtitle">Novel Visualisation Methods</h3>
+        <p>Developed through research and validated in industry pilots, our visualisations make ground truth immediately understandable and reveal insights traditional dashboards cannot show.</p>
+
+        <h3 class="subtitle">Scalable Cloud Architecture</h3>
+        <p>Designed for multi-project deployment, security, and integration with existing digital ecosystems.</p>
+        </div>
+
+    </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+
+/* Add spacing at the top of the page */
+.technology-overview {
+  padding-top: 75px; /* adjust the value as needed */
+}
+
+/* Technology and Data-Integration grids */
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr; /* left smaller, right wider */
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+.tech-grid h2 {
+  font-size: 36px;
+  color: #333F48;
+  margin: 0;
+}
+
+.tech-grid p {
+  font-size: 18px;
+  color: #333F48;
+  line-height: 1.6;
+}
+
+.tech-grid ul {
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .tech-grid h2 {
+    font-size: 28px;
+  }
+
+  .tech-grid p {
+    font-size: 16px;
+  }
+}
+
+.integrated-intelligence {
+  position: relative;
+  width: 100%;
+  background: url('/hero3.png') center/cover no-repeat; /* updated image */
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+.integrated-intelligence .hero-bg {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.integrated-intelligence .content-box {
+  position: relative;
+  background: #fff; /* fully opaque */
+  padding: 40px;
+  max-width: 60%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 2; /* above overlay */
+}
+
+.integrated-intelligence .content-box h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+  color: #333F48;
+}
+
+.integrated-intelligence .content-box p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333F48;
+  margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .integrated-intelligence .content-box {
+    max-width: 80%;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .integrated-intelligence .content-box {
+    max-width: 95%;
+    padding: 24px;
+  }
+
+  .integrated-intelligence .content-box h2 {
+    font-size: 28px;
+  }
+
+  .integrated-intelligence .content-box p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .integrated-intelligence {
+    padding: 60px 0;
+  }
+}
+
+/* 4-column grid for Underlying Technology */
+.underlying-technology {
+  margin-top: 75px; /* space from previous section */
+}
+
+/* 4-column grid for Underlying Technology */
+.tech-grid-4col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 equal columns */
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+.tech-grid-4col h2 {
+  font-size: 36px;
+  color: #333F48;
+  margin-bottom: 16px;
+}
+
+.tech-grid-4col h3.subtitle {
+  color: #E9560D;  /* subtitle color */
+  font-weight: bold; 
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.tech-grid-4col p {
+  font-size: 16px;
+  color: #333F48;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.tech-grid-4col ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+/* Responsive: stack columns on smaller screens */
+@media (max-width: 1024px) {
+  .tech-grid-4col {
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-grid-4col {
+    grid-template-columns: 1fr; /* stack all columns */
+    gap: 24px;
+  }
+
+  .tech-grid-4col h2 {
+    font-size: 28px;
+  }
+
+  .tech-grid-4col h3.subtitle {
+    font-size: 16px;
+  }
+
+  .tech-grid-4col p {
+    font-size: 14px;
+  }
+}
+</style>

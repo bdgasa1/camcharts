@@ -1,0 +1,115 @@
+<section class="technology">
+  <div class="container">
+
+    <!-- Title -->
+    <h2 class="title">Construction site data & AI</h2>
+    <p class="subtitle">
+      Performance intelligence that drives efficiency, certainty, and commercial advantage
+    </p>
+
+    <!-- Two-column content -->
+    <div class="tech-grid">
+      
+      <!-- Left column -->
+      <p class="content">
+        Our AI platform is designed to elevate site-level performance by providing real-time 
+        data and analytics. Users can make informed decisions that enhance productivity and 
+        efficiency on construction sites, ultimately leading to improved project outcomes.
+      </p>
+
+      <!-- Right column (wider) -->
+      <div class="right-col">
+        <p class="content">
+          We aim to continuously innovate and adapt our technology to the evolving needs of the 
+          construction industry, ensuring our clients are equipped with the most effective tools 
+          to drive success and achieve operational excellence.
+        </p>
+
+        <a href="/technology" class="learn-more">Learn more</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .technology {
+    padding: 80px 0;
+    background: #fff;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .title {
+    font-size: 48px;
+    margin: 0 0 10px 0;
+    color: #333F48;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    color: #E9560D;
+    font-weight: 600;
+    max-width: 700px;
+    margin: 0 0 40px 0;
+    line-height: 1.5;
+  }
+
+  /* Right side wider */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* left smaller, right wider */
+    gap: 40px;
+  }
+
+  .content {
+    font-size: 18px;
+    color: #333F48;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Learn More button */
+  .learn-more {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #333F48;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+    width: fit-content;
+  }
+
+  .learn-more:hover {
+    background: #1e2429; /* darker tone */
+  }
+
+  /* Responsive stacking */
+  @media (max-width: 768px) {
+    .tech-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .title {
+      font-size: 36px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+    }
+  }
+</style>

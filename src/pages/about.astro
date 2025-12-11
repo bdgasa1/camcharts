@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+---
+
+<BaseLayout>
+  <Header />
+
+  <main>
+
+    <!-- Page Hero / Title -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>About Us</h1>
+        <p class="page-subtitle">
+          Driving innovation and productivity in construction through data, technology, and insight.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-content">
+      <div class="container">
+
+        <!-- Our Commitment -->
+        <div class="section-block">
+          <h2>Our Commitment</h2>
+          <p>
+            Cambridge Construction Intelligence is at the forefront of AI in construction, providing innovative solutions that enhance visibility and productivity. Our aim is to streamline operational processes, enabling construction companies to thrive in a competitive market.
+          </p>
+        </div>
+
+        <!-- Who We Are -->
+        <div class="section-block">
+          <h2>Who We Are</h2>
+          <p>
+            We are a research-driven technology company dedicated to redefining how construction performance is measured and understood. Our technology is the result of more than five years of rigorous research and development at the University of Cambridge, shaped through deep collaboration with top-tier UK construction firms.
+          </p>
+          <p>
+            Our AI platform delivers integrated productivity intelligence that construction teams can trust. We exist to help organisations see what’s really happening on their projects, learn from it, and consistently build better.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <style>
+    /* Hero section */
+    .page-hero {
+      padding: 80px 0;
+      text-align: center;
+      background: #f9f9f9;
+    }
+
+    .page-hero h1 {
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .page-hero .page-subtitle {
+      font-size: 20px;
+      font-weight: bold;
+      color: #E9560D;
+      line-height: 1.5;
+    }
+
+    /* About content sections */
+    .about-content {
+      padding: 60px 0;
+    }
+
+    .section-block {
+      margin-bottom: 60px;
+    }
+
+    .section-block h2 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #333F48;
+    }
+
+    .section-block p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333F48;
+      margin-bottom: 16px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .page-hero h1 {
+        font-size: 36px;
+      }
+
+      .page-hero .page-subtitle {
+        font-size: 18px;
+      }
+
+      .section-block h2 {
+        font-size: 28px;
+      }
+
+      .section-block p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</BaseLayout>

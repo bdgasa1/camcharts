@@ -1,0 +1,72 @@
+---
+const menu = [
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Our Solution", href: "/solution"},
+  { name: "Our Technology", href: "/technology" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<header class="header">
+  <div class="container">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <img src="/logo.svg" alt="Logo" />
+    </a>
+
+    <!-- Navigation Menu -->
+    <nav class="nav">
+      <ul class="menu">
+        {menu.map(item => (
+          <li><a href={item.href}>{item.name}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;       /* vertical center everything */
+    justify-content: space-between;
+  }
+
+  /* Logo */
+  .logo img {
+    height: 50px;              /* adjust height as needed */
+    width: auto;
+    display: block;             /* removes inline spacing issues */
+  }
+
+  /* Menu horizontal */
+  .menu {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #333F48;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.2s ease;
+  }
+
+  .menu li a:hover {
+    color: #E9560D;
+  }
+</style>

@@ -1,0 +1,167 @@
+---
+import "../styles/global.css";
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Solution - Cambridge Construction Intelligence</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <!-- Section 1: Solution Overview -->
+    <section class="solution-overview">
+      <div class="container tech-grid">
+        <!-- Left column: Heading -->
+        <h2>Our Solution</h2>
+        <p>Cambridge Construction Intelligence automatically integrates diverse data streams into 
+            structured, standardised productivity metrics.</p>
+        <p class="subtitle">A unified AI platform to measure, benchmark, and improve construction productivity</p>
+        
+
+        <!-- Right column: Paragraphs -->
+        <div>
+          <p>Our platform provides:</p>
+          <ul>
+            <li>A consistent data collection framework for any project</li>
+            <li>Automated integration of progress, schedules, field data, logistics, and visual data</li>
+            <li>Novel productivity metrics and visualisations (e.g., flowlines, plan vs actual, blockers)</li>
+            <li>Benchmarks to compare performance within and between projects</li>
+            <li>Near real-time insights to identify inefficiencies and optimise workflows</li>
+          </ul>
+
+          <p>
+            Unlike traditional progress monitoring tools, our system measures actual productivity, not just 
+            progress, using integrated intelligence proven across pilot studies with Tier 1 and Tier 2 UK contractors.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Benefits -->
+    <section class="solution-benefits">
+      <div class="container tech-grid">
+        <!-- Left column: Heading -->
+        <div>
+          <h2>The Benefits of Our Technology</h2>
+        </div>
+
+        <!-- Right column: Benefits list -->
+        <div>
+          <h3 class="subtitle">For Contractors</h3>
+          <ul>
+            <li>Clear visibility of real productivity</li>
+            <li>Faster identification of delays and inefficiencies</li>
+            <li>Data-driven decision-making</li>
+            <li>Better sequencing and coordination</li>
+            <li>Stronger commercial and tendering positions</li>
+            <li>Reduced programme uncertainty and risk</li>
+          </ul>
+
+          <h3 class="subtitle">For Clients & Developers</h3>
+          <ul>
+            <li>Transparent evidence of performance</li>
+            <li>Improved predictability and control</li>
+            <li>Assurance that productivity is tracked consistently</li>
+            <li>Insights to support MMC, DfMA, and modern delivery models</li>
+          </ul>
+
+          <h3 class="subtitle">For the Entire Project Ecosystem</h3>
+          <ul>
+            <li>Shared metrics and language</li>
+            <li>Fewer disputes and subjective interpretations</li>
+            <li>Stronger learning culture across projects</li>
+            <li>Benchmarking that improves long-term performance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+
+/* Add spacing at the top of the page */
+.solution-overview {
+  padding-top: 75px; /* adjust the value as needed */
+}
+
+/* Grids for Solution sections */
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr; /* left smaller, right wider */
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+.tech-grid h2 {
+  font-size: 36px;
+  color: #333F48;
+  margin: 0;
+}
+
+.tech-grid h3.subtitle {
+  color: #E9560D;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.tech-grid p {
+  font-size: 18px;
+  color: #333F48;
+  line-height: 1.6;
+}
+
+.tech-grid ul {
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+/* Add spacing between sections */
+.solution-benefits,
+.solution-result {
+  margin-top: 80px; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .tech-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-grid h2 {
+    font-size: 28px;
+  }
+
+  .tech-grid h3.subtitle {
+    font-size: 16px;
+  }
+
+  .tech-grid p,
+  .tech-grid ul {
+    font-size: 16px;
+  }
+}
+</style>

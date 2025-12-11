@@ -1,0 +1,150 @@
+---
+const { height = "50vh" } = Astro.props;
+
+const slides = [
+  {
+    title: "Unlock the value of your construction data",
+    subtitle: "Standardise, automate, and benchmark productivity across projects, methodologies, and delivery models",
+    image: "/hero1.jpg"
+  },
+  {
+    title: "Automated production insights for construction delivery",
+    subtitle: "AI powered real-time visibility of production, performance and bottlenecks to make decisions based on live data, not guesswork",
+    image: "/hero2.jpg"
+  }
+];
+---
+
+<section class="hero" style={`height: ${height};`} data-slides={JSON.stringify(slides)}>
+  <div class="hero-slides">
+    {slides.map((slide, i) => (
+      <div
+        class={`hero-slide ${i === 0 ? 'active' : ''}`}
+        style={`background-image: url(${slide.image});`}
+        aria-label={slide.title}
+      ></div>
+    ))}
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <h1 id="hero-title">{slides[0].title}</h1>
+    <p id="hero-subtitle">{slides[0].subtitle}</p>
+  </div>
+</section>
+
+<script is:inline>
+  const hero = document.querySelector('.hero');
+  const slides = JSON.parse(hero.dataset.slides);
+  const images = document.querySelectorAll('.hero-slide');
+  const titleEl = document.getElementById('hero-title');
+  const subtitleEl = document.getElementById('hero-subtitle');
+
+  let index = 0;
+
+  function rotate() {
+    images[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    images[index].classList.add('active');
+
+    titleEl.style.opacity = 0;
+    subtitleEl.style.opacity = 0;
+
+    setTimeout(() => {
+      titleEl.textContent = slides[index].title;
+      subtitleEl.textContent = slides[index].subtitle;
+      titleEl.style.opacity = 1;
+      subtitleEl.style.opacity = 1;
+    }, 400);
+  }
+
+  setInterval(rotate, 5000);
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100vw;             
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .hero-slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35); 
+    z-index: 5;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: left;
+    padding: 250px 24px 0 24px;
+    max-width: 90%;
+  }
+
+  /* Force text to white even if global CSS applies different color */
+  .hero-content h1,
+  .hero-content p {
+    color: white;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+  }
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    transition: opacity 0.4s ease;
+    opacity: 1;
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    transition: opacity 0.4s ease;
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .hero-content {
+      padding-top: 100px;
+    }
+  }
+</style>

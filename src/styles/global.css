@@ -1,0 +1,59 @@
+/* Global Font & Colors */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333F48;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #333F48;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #E9560D;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333F48;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+/* Container for consistent page width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #333F48;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: #1e2429;
+}
+
+/* Global Subtitle */
+.subtitle {
+  font-size: 20px;       /* adjust as needed */
+  font-weight: 600;      /* bold */
+  color: #E9560D !important;        /* your desired accent color */
+  margin-bottom: 16px;   /* spacing below subtitle */
+  line-height: 1.4;
+}
