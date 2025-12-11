@@ -9,6 +9,8 @@ import Footer from '../components/Footer.astro';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - Cambridge Construction Intelligence</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -51,6 +53,11 @@ import Footer from '../components/Footer.astro';
 </html>
 
 <style>
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 /* Contact Page Grid */
 .contact-grid {
   display: grid;
@@ -120,10 +127,14 @@ import Footer from '../components/Footer.astro';
     font-size: 28px;
   }
 
+  body,
+  .contact-info,
+  .contact-info h2,
+  .contact-info .subtitle,
   .contact-info p,
   .contact-form input,
   .contact-form textarea {
-    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
   }
 }
 </style>
