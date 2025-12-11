@@ -9,6 +9,9 @@ import Footer from '../components/Footer.astro';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Solution - Cambridge Construction Intelligence</title>
+
+    <!-- Poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -17,12 +20,17 @@ import Footer from '../components/Footer.astro';
     <!-- Section 1: Solution Overview -->
     <section class="solution-overview">
       <div class="container tech-grid">
-        <!-- Left column: Heading -->
-        <h2>Our Solution</h2>
-        <p>Cambridge Construction Intelligence automatically integrates diverse data streams into 
-            structured, standardised productivity metrics.</p>
-        <p class="subtitle">A unified AI platform to measure, benchmark, and improve construction productivity</p>
-        
+        <!-- Left column: Heading and subtitle -->
+        <div>
+          <h2>Our Solution</h2>
+          <p>
+            Cambridge Construction Intelligence automatically integrates diverse data streams into 
+            structured, standardised productivity metrics.
+          </p>
+          <p class="subtitle">
+            A unified AI platform to measure, benchmark, and improve construction productivity
+          </p>
+        </div>
 
         <!-- Right column: Paragraphs -->
         <div>
@@ -82,21 +90,21 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-
-
-        </div>
-      </div>
-    </section>
-
     <Footer />
   </body>
 </html>
 
 <style>
+/* =======================
+   Global font
+======================= */
+body {
+  font-family: 'Poppins', sans-serif;
+}
 
 /* Add spacing at the top of the page */
 .solution-overview {
-  padding-top: 75px; /* adjust the value as needed */
+  padding-top: 75px;
 }
 
 /* Grids for Solution sections */
@@ -133,9 +141,8 @@ import Footer from '../components/Footer.astro';
 }
 
 /* Add spacing between sections */
-.solution-benefits,
-.solution-result {
-  margin-top: 80px; 
+.solution-benefits {
+  margin-top: 80px;
 }
 
 /* Responsive adjustments */
@@ -150,18 +157,29 @@ import Footer from '../components/Footer.astro';
   .tech-grid {
     grid-template-columns: 1fr;
   }
-
   .tech-grid h2 {
     font-size: 28px;
   }
-
   .tech-grid h3.subtitle {
     font-size: 16px;
   }
-
   .tech-grid p,
   .tech-grid ul {
     font-size: 16px;
+  }
+}
+
+/* =======================
+   Force Poppins for mobile
+======================= */
+@media (max-width: 1024px) {
+  body,
+  .tech-grid,
+  .tech-grid h2,
+  .tech-grid p,
+  .tech-grid ul,
+  .tech-grid h3.subtitle {
+    font-family: 'Poppins', sans-serif;
   }
 }
 </style>
