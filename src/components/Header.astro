@@ -2,7 +2,7 @@
 const menu = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "Our Solution", href: "/solution"},
+  { name: "Our Solution", href: "/solution" },
   { name: "Our Technology", href: "/technology" },
   { name: "Contact", href: "/contact" },
 ];
@@ -10,27 +10,39 @@ const menu = [
 
 <header class="header">
   <div class="container">
+
     <!-- Logo -->
     <a href="/" class="logo">
       <img src="/logo.svg" alt="Logo" />
     </a>
 
-    <!-- Navigation Menu -->
-    <nav class="nav">
+    <!-- Hamburger -->
+    <button id="hamburger" class="hamburger" aria-label="Toggle menu">
+      ☰
+    </button>
+
+    <!-- Navigation -->
+    <nav id="nav" class="nav">
       <ul class="menu">
-        {menu.map(item => (
+        {menu.map((item) => (
           <li><a href={item.href}>{item.name}</a></li>
         ))}
       </ul>
     </nav>
+
   </div>
 </header>
 
 <style>
+  /* ----------------------------
+     BASE LAYOUT
+  ---------------------------- */
   .header {
     width: 100%;
-    border-bottom: 1px solid #eee;
     background: #fff;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    z-index: 50;
   }
 
   .container {
@@ -38,18 +50,23 @@ const menu = [
     margin: 0 auto;
     padding: 16px 24px;
     display: flex;
-    align-items: center;       /* vertical center everything */
+    align-items: center;
     justify-content: space-between;
   }
 
-  /* Logo */
   .logo img {
-    height: 50px;              /* adjust height as needed */
+    height: 50px;
     width: auto;
-    display: block;             /* removes inline spacing issues */
+    display: block;
   }
 
-  /* Menu horizontal */
+  /* ----------------------------
+     DESKTOP NAVIGATION
+  ---------------------------- */
+  .nav {
+    display: block;
+  }
+
   .menu {
     display: flex;
     list-style: none;
@@ -62,11 +79,72 @@ const menu = [
     text-decoration: none;
     font-weight: 500;
     color: #333F48;
-    font-family: 'Poppins', sans-serif;
-    transition: color 0.2s ease;
+    font-family: "Poppins", sans-serif;
+    transition: color 0.25s ease;
   }
 
   .menu li a:hover {
     color: #E9560D;
   }
+
+  /* ----------------------------
+     HAMBURGER — default hidden
+  ---------------------------- */
+  .hamburger {
+    display: none;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+  }
+
+  /* ----------------------------
+     MOBILE NAVIGATION (<1024px)
+  ---------------------------- */
+  @media (max-width: 1024px) {
+    /* Show hamburger */
+    .hamburger {
+      display: block;
+      z-index: 1000;
+    }
+
+    /* Hide desktop nav */
+    .nav {
+      position: absolute;
+      left: 0;
+      top: 70px;
+      width: 100%;
+      background: #fff;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      border-bottom: 1px solid #eee;
+      transition: max-height 0.35s ease, opacity 0.25s ease;
+    }
+
+    .nav.open {
+      max-height: 350px;     /* enough space to show menu */
+      opacity: 1;
+    }
+
+    .menu {
+      flex-direction: column;
+      padding: 16px 24px;
+      gap: 20px;
+    }
+  }
 </style>
+
+<script>
+  const btn = document.getElementById("hamburger");
+  const nav = document.getElementById("nav");
+
+  btn?.addEventListener("click", () => {
+    nav.classList.toggle("open");
+
+    // Toggle icon
+    btn.textContent = nav.classList.contains("open") ? "×" : "☰";
+  });
+</script>
