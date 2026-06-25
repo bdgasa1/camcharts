@@ -1,32 +1,29 @@
 ---
-const menu = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Our Solution", href: "/solution" },
-  { name: "Our Technology", href: "/technology" },
-  { name: "Contact", href: "/contact" },
-];
+// No page links — single landing page. Nav: logo + platform button + contact anchor.
 ---
 
 <header class="header">
   <div class="container">
 
-    <!-- Logo -->
     <a href="/" class="logo">
-      <img src="/logo.svg" alt="Logo" />
+      <img src="/logo.svg" alt="Camentis" />
     </a>
 
-    <!-- Hamburger -->
-    <button id="hamburger" class="hamburger" aria-label="Toggle menu">
-      ☰
-    </button>
+    <button id="hamburger" class="hamburger" aria-label="Toggle menu">☰</button>
 
-    <!-- Navigation -->
     <nav id="nav" class="nav">
       <ul class="menu">
-        {menu.map((item) => (
-          <li><a href={item.href}>{item.name}</a></li>
-        ))}
+        <li><a href="/#contact" class="contact-link">Contact</a></li>
+        <li>
+          <a
+            href="https://camentis.ai"
+            target="_blank"
+            rel="noopener"
+            class="platform-btn"
+          >
+            Open platform ↗
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -34,14 +31,12 @@ const menu = [
 </header>
 
 <style>
-  /* ----------------------------
-     BASE LAYOUT
-  ---------------------------- */
   .header {
     width: 100%;
     background: #fff;
     border-bottom: 1px solid #eee;
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 50;
   }
 
@@ -60,19 +55,15 @@ const menu = [
     display: block;
   }
 
-  /* ----------------------------
-     DESKTOP NAVIGATION
-  ---------------------------- */
-  .nav {
-    display: block;
-  }
+  .nav { display: block; }
 
   .menu {
     display: flex;
     list-style: none;
-    gap: 32px;
+    gap: 24px;
     margin: 0;
     padding: 0;
+    align-items: center;
   }
 
   .menu li a {
@@ -83,38 +74,43 @@ const menu = [
     transition: color 0.25s ease;
   }
 
-  .menu li a:hover {
-    color: #E9560D;
+  .menu li a:hover { color: #E9560D; }
+
+  /* "Open platform" button */
+  .platform-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #333F48;
+    color: #fff !important;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: background 0.2s ease;
   }
 
-  /* ----------------------------
-     HAMBURGER — default hidden
-  ---------------------------- */
+  .platform-btn:hover {
+    background: #E9560D !important;
+    color: #fff !important;
+  }
+
+  /* Hamburger — hidden on desktop */
   .hamburger {
     display: none;
-    font-size: 32px;
+    font-size: 28px;
     background: none;
     border: none;
     cursor: pointer;
     line-height: 1;
     padding: 4px;
+    color: #333F48;
   }
 
-  /* ----------------------------
-     MOBILE NAVIGATION (<1024px)
-  ---------------------------- */
-  @media (max-width: 1024px) {
-    /* Show hamburger */
-    .hamburger {
-      display: block;
-      z-index: 1000;
-    }
+  @media (max-width: 768px) {
+    .hamburger { display: block; z-index: 100; }
 
-    /* Hide desktop nav */
     .nav {
       position: absolute;
       left: 0;
-      top: 70px;
+      top: 83px;
       width: 100%;
       background: #fff;
       overflow: hidden;
@@ -124,15 +120,13 @@ const menu = [
       transition: max-height 0.35s ease, opacity 0.25s ease;
     }
 
-    .nav.open {
-      max-height: 350px;     /* enough space to show menu */
-      opacity: 1;
-    }
+    .nav.open { max-height: 160px; opacity: 1; }
 
     .menu {
       flex-direction: column;
       padding: 16px 24px;
-      gap: 20px;
+      gap: 16px;
+      align-items: flex-start;
     }
   }
 </style>
@@ -143,8 +137,14 @@ const menu = [
 
   btn?.addEventListener("click", () => {
     nav.classList.toggle("open");
-
-    // Toggle icon
     btn.textContent = nav.classList.contains("open") ? "×" : "☰";
+  });
+
+  // Close nav when a link is clicked (mobile)
+  nav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      btn.textContent = "☰";
+    });
   });
 </script>

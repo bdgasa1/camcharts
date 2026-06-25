@@ -1,44 +1,26 @@
 ---
 import "../styles/global.css";
+
+const {
+  title = "Camentis",
+  description = "Camentis — construction productivity intelligence from the University of Cambridge.",
+} = Astro.props;
 ---
 
-
-<head>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
-    rel="stylesheet"
-  />
-</head>
-
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CamCharts</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-
   <body>
     <slot />
   </body>
 </html>
-
-
-
-<style global>
-  body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-  }
-
-
-  a {
-    text-decoration: none;
-    color: #333F48;
-    transition: color 0.2s ease;
-  }
-
-  a:hover {
-    color: #E9560D;
-  }
-  
-</style>
