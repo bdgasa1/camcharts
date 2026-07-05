@@ -1,59 +1,154 @@
-/* Global Font & Colors */
-body {
-  font-family: 'Poppins', sans-serif;
-  color: #333F48;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  background: #fff;
+/* ═══════════════════════════════════════════════════════════
+   CAMENTIS: GLOBAL STYLES
+   Brand tokens from Camentis Style Guide (WIP, July 2026)
+═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* Core colours */
+  --navy: #002657;
+  --teal: #00A4B1;
+  --cool-grey: #DADFE2;
+
+  /* Secondary colours */
+  --slate: #3C4448;
+  --light-grey: #EFF1F2;
+
+  /* Accent colours (use sparingly) */
+  --yellow: #E5E798;
+  --sky: #8AD4F5;
+
+  --white: #FFFFFF;
+
+  /* Derived tints/shades, not in guide, kept close to source colours */
+  --navy-deep: #001739;
+  --teal-dark: #007D87;
+  --slate-soft: #6B7378;
+
+  /* Type */
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+
+  /* Layout */
+  --max-width: 1200px;
+  --section-pad: 112px;
 }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--slate);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--navy);
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0; }
+
+strong, b { font-weight: 600; }
 
 a {
+  color: inherit;
   text-decoration: none;
-  color: #333F48;
-  transition: color 0.2s ease;
 }
 
-a:hover {
-  color: #E9560D;
+img { max-width: 100%; display: block; }
+
+button { font-family: inherit; }
+
+::selection {
+  background: var(--teal);
+  color: var(--white);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #333F48;
-  margin: 0;
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
 }
 
-p {
-  margin: 0 0 1em 0;
-}
-
-/* Container for consistent page width */
 .container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
-/* Buttons */
-.button {
+/* Shared eyebrow label used above section headings */
+.eyebrow {
   display: inline-block;
-  padding: 12px 28px;
-  background: #333F48;
-  color: #fff;
+  font-family: var(--font-display);
+  font-size: 13px;
   font-weight: 600;
-  border-radius: 6px;
-  transition: background 0.2s ease;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin-bottom: 14px;
 }
 
-.button:hover {
-  background: #1e2429;
+/* Shared button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 
-/* Global Subtitle */
-.subtitle {
-  font-size: 20px;       /* adjust as needed */
-  font-weight: 600;      /* bold */
-  color: #E9560D !important;        /* your desired accent color */
-  margin-bottom: 16px;   /* spacing below subtitle */
-  line-height: 1.4;
+.btn-primary {
+  background: var(--teal-dark);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid var(--sky);
+}
+.btn-outline:hover {
+  background: var(--sky);
+  color: var(--navy-deep);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--cool-grey);
+}
+.btn-ghost:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+@media (max-width: 768px) {
+  :root { --section-pad: 72px; }
 }

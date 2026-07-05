@@ -1,19 +1,24 @@
 ---
-// No page links — single landing page. Nav: logo + platform button + contact anchor.
+// Single landing page. Nav items are same-page anchors, not routes.
+// Drop your negative (light-on-navy) lockup at /public/logo-negative.svg
 ---
 
 <header class="header">
-  <div class="container">
+  <div class="container bar">
 
     <a href="/" class="logo">
-      <img src="/logo.svg" alt="Camentis" />
+      <img src="/logo-negative.svg" alt="Camentis" />
     </a>
 
-    <button id="hamburger" class="hamburger" aria-label="Toggle menu">☰</button>
+    <button id="hamburger" class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
 
     <nav id="nav" class="nav">
       <ul class="menu">
-        <li><a href="/#contact" class="contact-link">Contact</a></li>
+        <li><a href="#platform">Platform</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
         <li>
           <a
             href="https://camentis.ai"
@@ -33,24 +38,21 @@
 <style>
   .header {
     width: 100%;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    background: var(--navy);
     position: sticky;
     top: 0;
     z-index: 50;
   }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px 24px;
+  .bar {
+    padding: 18px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   .logo img {
-    height: 50px;
+    height: 34px;
     width: auto;
     display: block;
   }
@@ -60,7 +62,7 @@
   .menu {
     display: flex;
     list-style: none;
-    gap: 24px;
+    gap: 36px;
     margin: 0;
     padding: 0;
     align-items: center;
@@ -68,64 +70,77 @@
 
   .menu li a {
     text-decoration: none;
+    font-family: var(--font-display);
     font-weight: 500;
-    color: #333F48;
-    font-family: "Poppins", sans-serif;
-    transition: color 0.25s ease;
+    font-size: 14.5px;
+    color: var(--light-grey);
+    transition: color 0.2s ease;
   }
 
-  .menu li a:hover { color: #E9560D; }
+  .menu li a:hover { color: var(--sky); }
 
-  /* "Open platform" button */
   .platform-btn {
     display: inline-block;
-    padding: 10px 22px;
-    background: #333F48;
-    color: #fff !important;
-    border-radius: 6px;
+    padding: 10px 20px !important;
+    background: var(--teal-dark);
+    color: var(--white) !important;
+    border-radius: 4px;
     font-weight: 600 !important;
-    transition: background 0.2s ease;
   }
 
   .platform-btn:hover {
-    background: #E9560D !important;
-    color: #fff !important;
+    background: var(--sky);
+    color: var(--navy-deep) !important;
   }
 
-  /* Hamburger — hidden on desktop */
+  /* Hamburger */
   .hamburger {
     display: none;
-    font-size: 28px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
     background: none;
     border: none;
     cursor: pointer;
-    line-height: 1;
-    padding: 4px;
-    color: #333F48;
+    padding: 0;
+    z-index: 100;
   }
 
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--light-grey);
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   @media (max-width: 768px) {
-    .hamburger { display: block; z-index: 100; }
+    .hamburger { display: flex; }
 
     .nav {
       position: absolute;
       left: 0;
-      top: 83px;
+      top: 100%;
       width: 100%;
-      background: #fff;
+      background: var(--navy);
       overflow: hidden;
       max-height: 0;
       opacity: 0;
-      border-bottom: 1px solid #eee;
       transition: max-height 0.35s ease, opacity 0.25s ease;
     }
 
-    .nav.open { max-height: 160px; opacity: 1; }
+    .nav.open { max-height: 260px; opacity: 1; }
 
     .menu {
       flex-direction: column;
-      padding: 16px 24px;
-      gap: 16px;
+      padding: 8px 32px 28px;
+      gap: 20px;
       align-items: flex-start;
     }
   }
@@ -136,15 +151,14 @@
   const nav = document.getElementById("nav");
 
   btn?.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    btn.textContent = nav.classList.contains("open") ? "×" : "☰";
+    nav?.classList.toggle("open");
+    btn.classList.toggle("open");
   });
 
-  // Close nav when a link is clicked (mobile)
   nav?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       nav.classList.remove("open");
-      btn.textContent = "☰";
+      btn?.classList.remove("open");
     });
   });
 </script>

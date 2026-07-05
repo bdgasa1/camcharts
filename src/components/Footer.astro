@@ -1,5 +1,6 @@
 <footer class="footer">
-  <div class="footer-inner">
+  <div class="container footer-inner">
+    <img src="/logo-negative.svg" alt="Camentis" class="footer-logo" />
     <p>© 2026 Camentis · Built at the University of Cambridge</p>
     <p class="footer-links">
       <a href="https://camentis.ai" target="_blank" rel="noopener">camentis.ai ↗</a>
@@ -12,23 +13,29 @@
 
 <style>
   .footer {
-    background: #333F48;
-    padding: 48px 24px;
+    background: var(--navy);
+    padding: 52px 24px 40px;
     text-align: center;
   }
 
   .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-logo {
+    height: 28px;
+    width: auto;
+    margin-bottom: 8px;
+    opacity: 0.9;
   }
 
   .footer p {
     margin: 0;
     font-size: 14px;
-    color: #bbb;
+    color: var(--cool-grey);
   }
 
   .footer-links {
@@ -38,19 +45,19 @@
     align-items: center;
   }
 
-  .sep { color: #555; }
+  .sep { color: var(--slate-soft); }
 
   .footer a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
     transition: color 0.2s;
   }
 
-  .footer a:hover { color: #E9560D; }
+  .footer a:hover { color: var(--sky); }
 
   .migration-note {
     font-size: 12px !important;
-    color: #666 !important;
+    color: var(--slate-soft) !important;
     margin-top: 4px;
   }
 </style>
