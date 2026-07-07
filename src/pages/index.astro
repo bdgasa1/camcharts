@@ -30,11 +30,12 @@ import Hero from "../components/Hero.astro";
           <p class="eyebrow">Platform</p>
           <h2>One consistent view of productivity</h2>
           <p>
-            Multi-source construction data exists on every project, they sit in
-            disconnected silos: planning tools, site diaries, delivery
-            records, and visual capture systems, with no integration layer
-            connecting them. By the time a slowdown appears in the weekly
-            report, the window to intervene has closed.
+            Multi-source construction data exists on every project, but it
+            sits in disconnected silos: planning tools, site diaries,
+            delivery records, and visual capture systems, with no
+            integration layer connecting them. By the time a slowdown
+            appears in the weekly report, the window to intervene has
+            closed.
           </p>
           <p>
             Camentis connects those streams into one standardised view:
@@ -69,19 +70,7 @@ import Hero from "../components/Hero.astro";
          RESEARCH FOUNDATION (dark panel, ring gauge)
     ══════════════════════════════════════════ -->
     <section class="research">
-      <div class="container split reverse">
-
-        <!-- <div class="split-visual">
-          <svg viewBox="0 0 220 220" class="ring-art" role="img" aria-label="Performance measurement ring">
-            <circle cx="110" cy="110" r="86" fill="none" stroke="#0A3568" stroke-width="16" />
-            <circle cx="110" cy="110" r="86" fill="none" stroke="#00A4B1" stroke-width="16"
-                    stroke-dasharray="405 540" stroke-linecap="round" transform="rotate(-90 110 110)" />
-            <circle cx="110" cy="110" r="86" fill="none" stroke="#E5E798" stroke-width="16"
-                    stroke-dasharray="95 540" stroke-dashoffset="-405" stroke-linecap="round" transform="rotate(-90 110 110)" />
-            <circle cx="110" cy="110" r="86" fill="none" stroke="#8AD4F5" stroke-width="16"
-                    stroke-dasharray="40 540" stroke-dashoffset="-500" stroke-linecap="round" transform="rotate(-90 110 110)" />
-          </svg>
-        </div> -->
+      <div class="container research-body">
 
         <div class="split-copy" id="about">
           <p class="eyebrow">Research foundation</p>
@@ -111,7 +100,6 @@ import Hero from "../components/Hero.astro";
     ══════════════════════════════════════════ -->
     <section class="founders">
       <div class="container">
-        <!-- <p class="eyebrow">Team</p> -->
         <h2 class="section-heading">Meet the team</h2>
         <div class="founders-grid">
 
@@ -167,26 +155,25 @@ import Hero from "../components/Hero.astro";
           <p class="eyebrow">Contact</p>
           <h2>Work with us</h2>
           <p>
-            We are onboarding pilot partners for 2026-2027.<br>If you are a 
+            We are onboarding pilot partners for 2026–2027.<br>If you are a 
             Tier 1 or Tier 2 contractor in building or infrastructure sector, and want to
             explore what consistent productivity measurement looks like on
             your project, get in touch.
           </p>
-          <!-- <a href="mailto:info@camconiq.com" class="email-link">
-            info@camconiq.com -->
+          <!--
+          <a href="mailto:info@camconiq.com" class="email-link">
+            info@camconiq.com
           </a>
+          -->
         </div>
 
         <!--
           FORM: uses Formspree for static-site email delivery.
-          1. Sign up free at https://formspree.io
-          2. Create a form → copy your endpoint code
-          3. Replace "REPLACE_WITH_YOUR_CODE" below
-             e.g. action="https://formspree.io/f/xbjnkqpo"
+          Endpoint connected: https://formspree.io/f/xkoleynp
         -->
         <form
           class="contact-form"
-          action="https://formspree.io/f/REPLACE_WITH_YOUR_CODE"
+          action="https://formspree.io/f/xkoleynp"
           method="POST"
         >
           <input type="text" name="name" placeholder="Name" required />
@@ -229,9 +216,6 @@ import Hero from "../components/Hero.astro";
     gap: 64px;
     align-items: center;
   }
-  .split.reverse { grid-template-columns: 0.9fr 1.1fr; }
-  .split.reverse .split-visual { order: 1; }
-  .split.reverse .split-copy { order: 2; }
 
   .platform {
     padding: var(--section-pad) 0;
@@ -282,11 +266,8 @@ import Hero from "../components/Hero.astro";
   .research .light-body { color: var(--cool-grey); }
   .research .eyebrow { color: var(--sky); }
 
-  .ring-art {
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    display: block;
+  .research-body {
+    max-width: 700px;
   }
 
   /* ─── FOUNDERS ───────────────────────────── */
@@ -419,12 +400,10 @@ import Hero from "../components/Hero.astro";
   @media (max-width: 960px) {
     .founders-grid { grid-template-columns: 1fr; }
     .contact-grid  { grid-template-columns: 1fr; gap: 48px; }
-    .split, .split.reverse {
+    .split {
       grid-template-columns: 1fr;
       gap: 40px;
     }
-    .split.reverse .split-visual { order: 0; }
-    .split.reverse .split-copy { order: 1; }
     .hex-frame { max-width: 340px; margin: 0 auto; }
   }
 </style>
