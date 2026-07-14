@@ -7,12 +7,17 @@ import Hero from "../components/Hero.astro";
 
 <BaseLayout>
 
-  <!-- Migration notice -->
-  <div class="migration-banner">
-    This site is moving to
-    <a href="https://camentis.ai" target="_blank" rel="noopener">camentis.ai</a>
-    in September 2026
+  <!-- Rebrand notice: shown only to visitors arriving via the old camconiq.com domain -->
+  <div id="rebrand-banner" class="migration-banner" style="display: none;">
+    CamConIQ is now Camentis. Our new home is
+    <a href="https://camentis.ai">camentis.ai</a>
   </div>
+  <script is:inline>
+    if (window.location.hostname.endsWith("camconiq.com")) {
+      var b = document.getElementById("rebrand-banner");
+      if (b) b.style.display = "block";
+    }
+  </script>
 
   <Header />
 
