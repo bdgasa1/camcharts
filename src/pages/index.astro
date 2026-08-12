@@ -9,7 +9,7 @@ import Hero from "../components/Hero.astro";
 
   <!-- Rebrand notice: shown only to visitors arriving via the old camconiq.com domain -->
   <div id="rebrand-banner" class="migration-banner" style="display: none;">
-    CamConIQ is now <b>Camentis</b>. Our new home is
+    CamConIQ is now Camentis. Our new home is
     <a href="https://camentis.ai">camentis.ai</a>
   </div>
   <script is:inline>
@@ -109,13 +109,21 @@ import Hero from "../components/Hero.astro";
         <div class="founders-grid">
 
           <div class="founder-card">
-            <h3>Dr Ashan Asmone</h3>
-            <span class="role">Research Associate, University of
-              Cambridge</span>
+            <div class="founder-head">
+              <div class="avatar-hex-wrap">
+                <svg class="avatar-accent" viewBox="0 0 600 693" aria-hidden="true">
+                  <polygon points="300,0 600,173.25 600,519.75 300,693 0,519.75 0,173.25" />
+                </svg>
+                <img src="/ashan.png" alt="Dr Ashan Asmone" class="avatar-photo" />
+              </div>
+              <div class="founder-id">
+                <h3>Dr Ashan Asmone</h3>
+                <span class="role">Research Associate, University of
+                  Cambridge</span>
+              </div>
+            </div>
             <p>
-              15+ years
-              across construction delivery, facilities management, and built
-              environment research.
+              15+ years of experience driving innovation and delivering practical solutions across construction, project delivery, and facilities management, transforming ideas into lasting impact across the built environment.
             </p>
             <a
               href="https://www.linkedin.com/in/ashan-asmone/"
@@ -128,9 +136,19 @@ import Hero from "../components/Hero.astro";
           </div>
 
           <div class="founder-card">
-            <h3>Dr Danny Murguia</h3>
-            <span class="role">Assistant Research Professor, University of
-              Cambridge</span>
+            <div class="founder-head">
+              <div class="avatar-hex-wrap">
+                <svg class="avatar-accent" viewBox="0 0 600 693" aria-hidden="true">
+                  <polygon points="300,0 600,173.25 600,519.75 300,693 0,519.75 0,173.25" />
+                </svg>
+                <img src="/danny.png" alt="Dr Danny Murguia" class="avatar-photo" />
+              </div>
+              <div class="founder-id">
+                <h3>Dr Danny Murguia</h3>
+                <span class="role">Assistant Research Professor, University of
+                  Cambridge</span>
+              </div>
+            </div>
             <p>
               20 years of construction engineering experience.
               Leads digital automation research at the Laing O'Rourke Centre for
@@ -229,7 +247,7 @@ import Hero from "../components/Hero.astro";
 
   .split-copy h2 {
     font-size: 38px;
-    font-weight: 600;
+    font-weight: 800;
     margin-bottom: 22px;
   }
 
@@ -283,7 +301,7 @@ import Hero from "../components/Hero.astro";
 
   .section-heading {
     font-size: 34px;
-    font-weight: 600;
+    font-weight: 800;
     margin: 0 0 44px 0;
   }
 
@@ -297,14 +315,14 @@ import Hero from "../components/Hero.astro";
     background: var(--white);
     border: 1px solid var(--cool-grey);
     border-radius: 6px;
-    padding: 34px;
+    padding: 36px 34px;
     display: flex;
     flex-direction: column;
   }
 
   .founder-card h3 {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 21px;
+    font-weight: 700;
     margin: 0 0 6px 0;
   }
 
@@ -316,7 +334,6 @@ import Hero from "../components/Hero.astro";
     color: var(--teal-dark);
     text-transform: uppercase;
     letter-spacing: 0.09em;
-    margin-bottom: 18px;
   }
 
   .founder-card p {
@@ -338,6 +355,50 @@ import Hero from "../components/Hero.astro";
   }
   .linkedin-link:hover { color: var(--teal-dark); }
 
+  /* ─── FOUNDER HEAD (avatar above centred name/role) ──── */
+  .founder-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .avatar-hex-wrap {
+    position: relative;
+    width: 240px;
+    height: 313px;   /* matches the pre-cropped PNGs' 600:693 ratio exactly */
+    flex-shrink: 0;
+    margin-bottom: 18px;
+  }
+
+  /* Subtle offset teal accent, matching the logo's actual pointy-top
+     hexagon orientation (point at top/bottom, flat left/right sides) */
+  .avatar-accent {
+    position: absolute;
+    inset: 0;
+    transform: translate(11px, 11px);
+  }
+
+  .avatar-accent polygon {
+    fill: var(--teal);
+    opacity: 0.32;
+  }
+
+  /* Image is already cropped to a hexagon (transparent PNG) — display
+     as-is, no second clip-path, so its shape is never re-cut */
+  .avatar-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .founder-id { min-width: 0; }
+  .founder-id h3 { margin-bottom: 6px; }
+  .founder-id .role { margin-bottom: 0; }
+
   /* ─── CONTACT ────────────────────────────── */
   .contact {
     padding: var(--section-pad) 0;
@@ -353,7 +414,7 @@ import Hero from "../components/Hero.astro";
 
   .contact-intro h2 {
     font-size: 34px;
-    font-weight: 600;
+    font-weight: 800;
     margin: 0 0 20px 0;
   }
 
@@ -410,5 +471,9 @@ import Hero from "../components/Hero.astro";
       gap: 40px;
     }
     .hex-frame { max-width: 340px; margin: 0 auto; }
+  }
+
+  @media (max-width: 420px) {
+    .avatar-hex-wrap { width: 124px; height: 143px; }
   }
 </style>

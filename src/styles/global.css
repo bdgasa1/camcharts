@@ -25,8 +25,8 @@
   --slate-soft: #6B7378;
 
   /* Type */
-  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Roboto Slab", Georgia, serif;
 
   /* Layout */
   --max-width: 1200px;
@@ -65,9 +65,13 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
 }
 
+/* Brand type hierarchy: headings ExtraBold, subheadings Bold */
+h1, h2 { font-weight: 800; }
+h3, h4 { font-weight: 700; }
+
 p { margin: 0; }
 
-strong, b { font-weight: 600; }
+strong, b { font-weight: 700; }
 
 a {
   color: inherit;
