@@ -4,35 +4,25 @@ const { height = "72vh" } = Astro.props;
 
 <section class="hero" style={`min-height: ${height}`}>
 
-  <!-- Background photo lives at /public/hero.jpg (see note below).
-       Navy overlay keeps the light text legible over any image. -->
+  <!-- Background photo: save as /public/hero.jpg (JPEG, RGB colour mode,
+       ~2400px wide, under ~400KB). Focal point is set in .hero-bg below.
+       Shown at its true colours, with no tint or overlay. -->
   <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
 
   <div class="container hero-content">
-    <!-- <p class="eyebrow eyebrow-light">Construction productivity intelligence</p> -->
-    <p class="eyebrow eyebrow-light">Measure. Benchmark. Improve.</p>
+    <p class="eyebrow eyebrow-light">Construction productivity intelligence</p>
     <h1>Building the future of construction<br class="lb" /> with data&#8209;driven intelligence</h1>
     <p class="sub">
-    Camentis unlocks the value of construction data, 
-    transforming fragmented project information into near real-time 
-    intelligence that <span class="accent">improves productivity</span>, 
-    enables <span class="accent">proactive decision-making</span>, and 
-      drives <span class="accent">cross-project learning,
-    </span>helping teams deliver better outcomes with greater certainty.
-
-
-      <!-- Camentis integrates fragmented site data, including
+      Camentis integrates fragmented site data, including
       <span class="accent">labour, delivery, IoT, progress, and visual capture</span>,
-      into one consistent, near-real-time view of productivity. -->
-      <br>
-      <!-- <br><b><span class="accent">Measure. Benchmark. Improve.</span></b> -->
+      into one consistent, near-real-time view of productivity.
+      Measure. Benchmark. Improve.
     </p>
     <div class="cta-row">
-      <!-- <a href="https://app.camentis.ai" target="_blank" rel="noopener" class="btn btn-primary">
+      <a href="https://app.camentis.ai" target="_blank" rel="noopener" class="btn btn-primary">
         Open platform ↗
-      </a> -->
-      <a href="#contact" class="btn btn-outline">BOOK A DEMO</a>
+      </a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
     </div>
   </div>
 </section>
@@ -53,22 +43,23 @@ const { height = "72vh" } = Astro.props;
     z-index: 0;
     background-image: url("/hero.jpg");
     background-size: cover;
+    /* Focal point: "x y". e.g. "70% center" keeps the right side of the
+       photo in view on narrow screens; "center top" keeps the top. */
     background-position: center;
   }
 
-  /* Navy wash: darker on the left where the text sits, lighter on the
-     right so the image still reads. Keeps the heading legible. */
+  /* No overlay: the photo is shown exactly as colour-corrected.
+     If text legibility ever needs help over a bright area, add
+     <div class="hero-overlay"></div> after .hero-bg and uncomment this
+     neutral (non-blue) scrim, which darkens without shifting colour:
+
   .hero-overlay {
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(0, 23, 57, 0.92) 0%,
-      rgba(0, 38, 87, 0.75) 45%,
-      rgba(0, 38, 87, 0.45) 100%
-    );
+    background: linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 70%);
   }
+  */
 
   .hero-content {
     position: relative;
